@@ -1,0 +1,18 @@
+to create virtual env 
+PS E:\programs\flaskapipro> pip install vertualenv
+PS E:\programs\flaskapipro> virtualevn --version
+PS E:\programs\flaskapipro> virtualenv flaskapi
+PS E:\programs\flaskapipro> flaskapi\Scripts\activate.bat
+
+
+create rrquirements.txt file 
+pip install -r requirements.txt 
+
+set up database
+-------------------
+install sqllite 
+apt-get install sqllite3 // ubuntu
+pip install db-sqlite3
+
+Create the database using the following command:
+
