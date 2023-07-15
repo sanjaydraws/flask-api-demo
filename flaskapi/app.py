@@ -6,10 +6,19 @@ import uuid #  universal unique identifiers to generate random id numbers for us
 import jwt
 import datetime
 from functools import wraps
+import os
+
 
 app  = Flask(__name__) 
 
 languages =  [{'name' : 'JavaScript'}, {'name' : 'Python'}, {'name' : 'Ruby'}]
+
+
+UPLOAD_FOLDER = 'uploads'
+ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg', 'gif'}
+
+app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
+
 
 @app.route('/', methods=['GET'])
 def test():
@@ -44,6 +53,37 @@ def removeOne(name):
     languages.remove(lang[0])
     return jsonify({'language' : languages}) 
 
+
+
+
+
+def allowed_file(filename):
+    return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
+
+@app.route('/upload-image', methods=['POST'])
+def upload_image():
+    try:
+        # Check if the POST request has the file part
+        if 'file' not in request.files:
+            return jsonify({'error': 'No file part in the request'}), 400
+        
+        file = request.files['file']
+
+        # Check if a file is selected
+        if file.filename == '':
+            return jsonify({'error': 'No file selected'}), 400
+        
+        # Check if the file has an allowed extension
+        if not allowed_file(file.filename):
+            return jsonify({'error': 'Invalid file extension'}), 400
+
+        # Save the file
+        file.save(os.path.join(app.config['UPLOAD_FOLDER'], file.filename))
+        
+        return jsonify({'message': 'File uploaded successfully'})
+
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
 
 
 if __name__ == '__main__':
