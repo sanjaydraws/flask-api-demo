@@ -1,0 +1,7 @@
+PS E:\programs\flaskApis\flask-api-demo\flaskapi> pip install gunicorn
+
+
+PS E:\programs\flaskApis\flask-api-demo\flaskapi> pip freeze > requirement.txt
+
+create ProcFile and add this module name 
+web: gunicorn app:app
