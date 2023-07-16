@@ -1,0 +1,123 @@
+
+// create new user
+http://127.0.0.1:8080/user
+{'name': 'sanjay', 'password': '4567sk'}
+
+{
+    "message": "New User Created!"
+}
+
+--------------------------------------------
+// to get all users
+http://127.0.0.1:8080/user
+
+
+{
+    "users": [
+        {
+            "admin": false,
+            "name": "Admin",
+            "password": "sha256$Z7LI8Eqg$4e926fce3876d8306f3888b5ebb67e5185ad4b2c43a2ae70a9cc8efc1e0986f3",
+            "public_id": "ae8f0e1d-5b16-4c91-9593-8bbba5570f79"
+        },
+        {
+            "admin": false,
+            "name": "sanjay",
+            "password": "sha256$NNvU2xAD$5243ee0d58663b0c741f8fb52e9d6e387b4dde6c5d6166ee3926f7d2bd3b15ce",
+            "public_id": "4617f402-5080-4e87-8619-2bb28d36c9ed"
+        }
+    ]
+}
+
+-----------------------------------------------------
+to get token
+
+http://127.0.0.1:8080/login
+
+select
+Authorization - basciAuth 
+
+get token
+
+-----------------------
+get all user by only addmin should have token 
+
+{
+    "users": [
+        {
+            "admin": false,
+            "name": "Admin",
+            "password": "sha256$Z7LI8Eqg$4e926fce3876d8306f3888b5ebb67e5185ad4b2c43a2ae70a9cc8efc1e0986f3",
+            "public_id": "ae8f0e1d-5b16-4c91-9593-8bbba5570f79"
+        },
+        {
+            "admin": false,
+            "name": "sanjay",
+            "password": "sha256$NNvU2xAD$5243ee0d58663b0c741f8fb52e9d6e387b4dde6c5d6166ee3926f7d2bd3b15ce",
+            "public_id": "4617f402-5080-4e87-8619-2bb28d36c9ed"
+        },
+        {
+            "admin": true,
+            "name": "sanjaydraws",
+            "password": "sha256$wlbeiKz4$f368ac821940ebeb6d3f9db45bbab7ecce6232f979e0720ffdff4f4d182c3b71",
+            "public_id": "171c111a-4e43-4751-91c8-6a3047a0d472"
+        }
+    ]
+}
+----------------------------------------
+# to create todo 
+http://127.0.0.1:8080/todo
+
+{
+    "text" : "drawing faces"
+}
+
+response
+{
+    "message": "Todo created!"
+}
+==================================
+# to get all todos 
+http://127.0.0.1:8080/todo
+{
+    "todos": [
+        {
+            "complete": false,
+            "id": 1,
+            "text": "reading books"
+        },
+        {
+            "complete": false,
+            "id": 2,
+            "text": "drawing faces"
+        }
+    ]
+}
+------------------------------------
+# to get current todo
+http://127.0.0.1:8080/todo/1
+
+
+response :
+{
+    "complete": false,
+    "id": 2,
+    "text": "drawing faces"
+}
+
+------------------------------
+# to complete todo #Put
+http://127.0.0.1:8080/todo/2
+
+{
+    "text" : "drawing faces"
+}
+
+-----------------------------------
+# to delete todo 
+http://127.0.0.1:8080/todo/1
+
+{
+    "message": "Todo item deleted!"
+}
+

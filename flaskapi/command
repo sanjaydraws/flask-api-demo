@@ -1,0 +1,32 @@
+to create virtual env 
+PS E:\programs\flaskapipro> pip install vertualenv
+PS E:\programs\flaskapipro> virtualevn --version
+PS E:\programs\flaskapipro> virtualenv flaskapi
+PS E:\programs\flaskapipro> flaskapi\Scripts\activate.bat
+
+
+create rrquirements.txt file 
+pip install -r requirements.txt 
+
+set up database
+-------------------
+install sqllite 
+apt-get install sqllite3 // ubuntu
+pip install db-sqlite3
+
+Create the database using the following command:
+>>> from app3 import db
+
+//define this path 
+base dir E:\programs\flaskApis\flask-api-demo\flaskapi
+sqlite:////E:\programs\flaskApis\flask-api-demo\flaskapi\todo.db
+>>> db.create_all()
+>>> exit()
+
+PS E:\programs\flaskApis\flask-api-demo\flaskapi> sqlite3 todo.db
+SQLite version 3.35.5 2021-04-19 18:32:05
+Enter ".help" for usage hints.
+todo  user
+sqlite> SELECT * FROM user;
+1|ae8f0e1d-5b16-4c91-9593-8bbba5570f79|Admin|sha256$Z7LI8Eqg$4e926fce3876d8306f3888b5ebb67e5185ad4b2c43a2ae70a9cc8efc1e0986f3|0
+ 
