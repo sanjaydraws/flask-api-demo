@@ -18,12 +18,15 @@ Opening browser to https://cli-auth.heroku.com/auth/cli/browser/8117a149-5044-48
 Logging in... done
 Logged in as sprajapat8331@gmail.com
 
-E:\programs\flaskApis\flask-api-demo\flaskapi>heroku flask-demo-api-deploy
+E:\programs\flaskApis\flask-api-demo\flaskapi>heroku create flask-api-demo-deploy
  »   Warning: heroku update available from 7.53.0 to 8.1.9.
- »   Warning: flask-demo-api-deploy is not a heroku command.
-Did you mean addons:destroy? [y/n]:
- »   Error: Run heroku help for a list of available commands.
+Creating ⬢ flask-api-demo-deploy... !
+ !    To create an app, verify your account by adding payment information. Verify now at https://heroku.com/verify Learn !    more at https://devcenter.heroku.com/articles/account-verification
 
-E:\programs\flaskApis\flask-api-demo\flaskapi>git push heroku main
-error: src refspec main does not match any
-error: failed to push some refs to 'heroku'
+E:\programs\flaskApis\flask-api-demo\flaskapi>git push heroku master
+fatal: 'heroku' does not appear to be a git repository
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+
